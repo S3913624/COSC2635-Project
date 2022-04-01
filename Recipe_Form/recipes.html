@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="style.css">
+		<title>Recipe Book</title>
+	</head>
+	<body>
+		<header>
+			<h1>Recipe Book</h1>
+		</header>
+		<section class="container">
+			<div id="loader">
+
+			</div>
+			<div id="allRecipes">
+
+			</div>
+			<div id="errorMessage">
+				<p>Failed to get recipes. Please try again</p>
+			</div>
+			<a href="index.html">Add another recipe</a>
+		</section>
+		<aside></aside>
+		<footer></footer>
+
+
+		<script>
+			let loader = document.getElementById("loader")
+			let allRecipes = document.getElementById("allRecipes")
+			let errorMessage = document.getElementById("errorMessage")
+
+			function setErrorDisplay() {
+			  loader.style.display = "none"
+			  allRecipes.style.display = "none"
+			  errorMessage.style.display = "block"
+			}
+
+			fetch("https://api.apispreadsheets.com/data/v7h9VwK8eecjdgSj/").then(res=>{
+				if (res.status === 200){
+					res.json().then(data=>{
+						const yourData = data["data"]
+						for (let i = 0; i < yourData.length; i++) {
+							let rowInfo = yourData[i]
+
+							let rowInfoDiv = document.createElement("div")
+							rowInfoDiv.classList.add("display")
+
+
+							let rowCategory = document.createElement("p")
+							let rowCategoryNode = document.createTextNode(rowInfo["category"])
+							rowCategory.appendChild(rowCategoryNode)
+							rowCategory.classList.add("display")
+
+							let rowRecipeName = document.createElement("h2")
+							let rowRecipeNameNode = document.createTextNode(rowInfo["recipe-name"])
+							rowRecipeName.appendChild(rowRecipeNameNode)
+							rowRecipeName.classList.add("display")
+
+							let rowTime = document.createElement("p")
+							let rowTimeNode = document.createTextNode("Cooking time: " + rowInfo["time"])
+							rowTime.appendChild(rowTimeNode)
+							rowTime.classList.add("display")
+
+							let rowDifficulty = document.createElement("p")
+							let rowDifficultyNode = document.createTextNode("Difficulty: " + rowInfo["difficulty"])
+							rowDifficulty.appendChild(rowDifficultyNode)
+							rowDifficulty.classList.add("display")
+
+							let ingredientTitle = document.createElement("h3")
+							let IngredientTitleNode = document.createTextNode("Ingredients")
+							ingredientTitle.appendChild(IngredientTitleNode)
+							ingredientTitle.classList.add("display")
+
+							let ingredientInfo = document.createElement("ul")
+
+							let ingredient1Item = document.createElement("li")
+							let ingredient1Node = document.createTextNode(rowInfo["amount-1"] + " " + rowInfo["unit-1"] + " - " + rowInfo["name-1"])
+							ingredient1Item.appendChild(ingredient1Node)
+							ingredientInfo.appendChild(ingredient1Item)
+
+							let ingredient2Item = document.createElement("li")
+							let ingredient2Node = document.createTextNode(rowInfo["amount-2"] + " " + rowInfo["unit-2"] + " - " + rowInfo["name-2"])
+							ingredient2Item.appendChild(ingredient2Node)
+							ingredientInfo.appendChild(ingredient2Item)
+
+							let ingredient3Item = document.createElement("li")
+							let ingredient3Node = document.createTextNode(rowInfo["amount-3"] + " " + rowInfo["unit-3"] + " - " + rowInfo["name-3"])
+							ingredient3Item.appendChild(ingredient3Node)
+							ingredientInfo.appendChild(ingredient3Item)
+
+							let ingredient4Item = document.createElement("li")
+							let ingredient4Node = document.createTextNode(rowInfo["amount-4"] + " " + rowInfo["unit-4"] + " - " + rowInfo["name-4"])
+							ingredient4Item.appendChild(ingredient4Node)
+							ingredientInfo.appendChild(ingredient4Item)
+
+							let ingredient5Item = document.createElement("li")
+							let ingredient5Node = document.createTextNode(rowInfo["amount-5"] + " " + rowInfo["unit-5"] + " - " + rowInfo["name-5"])
+							ingredient5Item.appendChild(ingredient5Node)
+							ingredientInfo.appendChild(ingredient5Item)
+
+							let instructionsTitle = document.createElement("h3")
+							let InstructionsTitleNode = document.createTextNode("Instructions")
+							instructionsTitle.appendChild(InstructionsTitleNode)
+							instructionsTitle.classList.add("display")
+
+							let instructionsInfo = document.createElement("ol")
+
+							let step1Item = document.createElement("li")
+							let step1Node = document.createTextNode(rowInfo["step-1"])
+							step1Item.appendChild(step1Node)
+							instructionsInfo.appendChild(step1Item)
+
+							let step2Item = document.createElement("li")
+							let step2Node = document.createTextNode(rowInfo["step-2"])
+							step2Item.appendChild(step2Node)
+							instructionsInfo.appendChild(step2Item)
+
+							let step3Item = document.createElement("li")
+							let step3Node = document.createTextNode(rowInfo["step-3"])
+							step3Item.appendChild(step3Node)
+							instructionsInfo.appendChild(step3Item)
+
+							let step4Item = document.createElement("li")
+							let step4Node = document.createTextNode(rowInfo["step-4"])
+							step4Item.appendChild(step4Node)
+							instructionsInfo.appendChild(step4Item)
+
+							let step5Item = document.createElement("li")
+							let step5Node = document.createTextNode(rowInfo["step-5"])
+							step5Item.appendChild(step5Node)
+							instructionsInfo.appendChild(step5Item)
+
+
+
+
+							rowInfoDiv.appendChild(rowRecipeName)
+							rowInfoDiv.appendChild(rowTime)
+							rowInfoDiv.appendChild(rowDifficulty)
+							rowInfoDiv.appendChild(ingredientTitle)
+							rowInfoDiv.appendChild(ingredientInfo)
+							rowInfoDiv.appendChild(instructionsTitle)
+							rowInfoDiv.appendChild(instructionsInfo)
+
+
+
+
+
+
+							allRecipes.appendChild(rowInfoDiv)
+						}
+
+						loader.style.display = "none"
+						allRecipes.style.display = "block"
+						errorMessage.style.display = "none"
+
+					}).catch(err => console.log(err))
+				}
+				else{
+					setErrorDisplay()
+				}
+			}).catch(err =>{
+
+			})
+		</script>
+
+	</body>
+</html>
