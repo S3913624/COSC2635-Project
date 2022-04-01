@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+html{
+    font-family: 'Nunito';
+    font-size: 12px;
+    font-weight: 600;
+}
+
+section{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background-color: rgb(26, 26, 27);
+
+    /*Background image parameters
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./Pics/pexels-ella-olsson-3026802.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+
+    */
+
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand{
+    text-align: center;
+    font-size: 4rem;
+    color: whitesmoke;
+    margin-bottom: 30px;
+}
+
+form{
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: rgb(233, 233, 233);
+    border-radius: 4px;
+}
+
+form input{
+    width: 90%;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    display: inline-block;
+}
+
+form ion-icon{
+    width: 4%;
+    font-size: 3rem;
+    margin: -8px;
+    color: rgb(75, 75, 75);
+}  
+
+.searchResult{
+    margin-top: 50px;
+    width: 100%;
+    display: grid;
+    grid-gap: 25px;
+    grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.item{
+    width: 100%;
+    border-radius: 8px;
+    background-color: rgba(37, 37, 37, 0.75);
+    padding: 10px;
+    overflow: hidden;
+    
+}
+
+.item img{
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+}
+
+.item .flexContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item .title{
+    color: whitesmoke;
+    margin: 20px 10px 0 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.viewButton{
+    text-decoration: none;
+    text-align: center;
+    width: 130px;
+    padding: 10px 0;
+    background-color: rgb(40, 40, 41);
+    color: white;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    align-self: flex-start;
+}
+
+.itemData{
+    color: whitesmoke;
+    display: block;
+    margin-top: 10px;
+    font-size: 1.4rem;
+    letter-spacing: 0.05rem;
+    line-height: 2rem;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BITS Recipe Fetcher</title>
+
+        <!--Link HTML with Javascript and CSS-->
+        <link rel="stylesheet" href="style.css">
+        <script defer src="main.js"></script>
+    </head>
+
+    <body>
+        
+        <section>
+            <div class="container">
+                <h1 class="brand">Recipe Fetcher</h1>
+                <form>
+                    <input type="text"placeholder="Search a recipe, dish...">
+                    
+                    <!--Search icon imported from https://ionic.io/ionicons-->
+                    <ion-icon name="search-outline"></ion-icon>
+                </form>
+
+                <div class="searchResult">
+                    <div class="item">
+                        <img src="./Pics/burbger.jpg" alt="Image goes here">
+                        <div class="flexContainer">
+                            <h1 class="title">Cheemsburger 🍔</h1>
+                            <a class="viewButton" href="#">View recipe</a>
+                        </div>
+                        <p class="itemData">Calories: 3 000 000 Kj</p>
+
+                    </div>
+
+                    <!--########## DUPLICATED ITEMS FOR TESTING ########## {
+                    <div class="item">
+                        <img src="./Pics/burbger.jpg" alt="Image goes here">
+                        <div class="flexContainer">
+                            <h1 class="title">Cheemsburger 🍔</h1>
+                            <a class="viewButton" href="#">View recipe</a>
+                        </div>
+                        <p class="itemData">Calories: 3 000 000 Kj</p>
+
+                    </div>
+
+                    <div class="item">
+                        <img src="./Pics/burbger.jpg" alt="Image goes here">
+                        <div class="flexContainer">
+                            <h1 class="title">Cheemsburger 🍔</h1>
+                            <a class="viewButton" href="#">View recipe</a>
+                        </div>
+                        <p class="itemData">Calories: 3 000 000 Kj</p>
+
+                    </div>
+                    #################### }-->
+
+                </div>
+            </div>
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+
+</html>
