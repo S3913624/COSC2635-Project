@@ -64,3 +64,16 @@ var thirdLastLetterOfLastName = lastName[lastName.length - 3];
 //string immutability, cannot change individual characters in a string. Only the whole string.
 var immutableString = "jello world";
 //immutableString[0] = "h"; console.log immutableString; will raise an error
+
+
+/*create strings using template literals.
+Allows for multi-line strings, punctuation and passing variables directly into the string.*/
+var person = {
+    name: "Nick",
+    age: 33
+};
+
+var greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting);

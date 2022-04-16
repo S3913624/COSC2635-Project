@@ -1,7 +1,7 @@
 /*Declaring Variables:
  - var: global when declared outside of functions. Var declared within a function becomes local to the function.
- - let: only used in scope of where it has been declared. cannot be declared more than once.
- - const: can never change. If there is an attempt, it will raise an error
+ - let: only used in block scope of where it has been declared. cannot be declared more than once.
+ - const: can never change. If there is an attempt, it will raise a read-only error. Convention to use all caps for constant-variable name.
 
  To determine type of variable, use "typeof"
 */
@@ -9,7 +9,7 @@
 var myName = "Nick";
 myName = "Not Nick"; //variable changed
 let age = 33;
-const pi = 3.14;
+const PI = 3.14;
 
 //end all lines with a semi-colon ";"
 
@@ -22,6 +22,3 @@ b = a; //assigning a variable to equal another variable
 var properCamelCase;
 
 console.log(a) //shows state of a variable at various stages in the program. prints output in the console.
-
-
-//var vs let

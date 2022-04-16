@@ -143,4 +143,7 @@ var gloveBoxContents = myStorage.car.inside["glove box"];
 //Accessing nested arrays inside objects using dot notation
 var secondAlbumSecondFormat = myMusic[1].formats[1];
 
-console.log(secondAlbumSecondFormat);
+//console.log(secondAlbumSecondFormat);
+
+
+//destructuring 

@@ -33,3 +33,11 @@ function change(num) {
 changed = change(10);
 
 //console.log(changed)
+
+//rest operator allows to create functions that take a variabled number of arguments
+var sum = (function() {
+    return function sum(...args) {                  //...args is the rest operator
+        return args.reduce((a, b) => a + b, 0);
+    };
+})();
+console.log(sum(1, 2, 3, 4));
