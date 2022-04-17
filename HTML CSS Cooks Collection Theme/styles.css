@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400");
+
+* {
+    box-sizing: border-box;
+    font-family: Raleway;
+    color: #777;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: .5em;
+    color: white;
+    text-decoration: none;
+}
+
+.main-nav {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.main-nav li {
+    padding: 0 5%;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
+
+.main-header {
+    background-image: url("Images/Header_Background.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+    left: 0;
+    right: 0;
+}
+
+.team-name {
+    text-align: center;
+    margin: 0;
+    font-size: 3em;
+    font-family: "Raleway";
+    font-weight: normal;
+    color: white;
+}
+
+.team-name-large{
+    font-size: 8em;
+    text-shadow: 2px 2px gray
+}
+
+.content-section {
+    margin: 1em;
+    text-align: justify;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+.section-header {
+    font-family: "Raleway";
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.circle-frame {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+.main-footer {
+    background-color: black;
+    color: white;
+    padding: .25em;
+    position: fixed;
+    width: 100%;
+    bottom:0;
+    z-index: 1;
+}
+
+.main-footer-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-footer-container ul{
+    flex-grow: 1;
+    text-align: end;
+}
+
+.footer-nav li {
+    padding: 0 .5em;
+}
+
+.footer-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+.clear {
+    clear: both;
+    height: 90px;
+}
+
+.xlarge {
+    font-size: 24px;
+}
+.sidebar-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    position: absoulte;
+}
+
+.sidebar-button:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+}
+
+.sidebar a {
+    text-decoration: none
+}
+
+.bar-block .bar-item {
+    width:100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: right;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0}
+
+.border-right {
+    border-right: 1px solid rgba(255, 255, 255, .3)
+}
+
+.sidebar-contents-button {
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px}
+
+.sidebar-contents-button:hover {
+    color:#000;
+    background-color: rgba(255, 255, 255, .3)
+}
+
+#display-image{
+	width: 375px;
+	height: 211px;
+	border: 1px solid black;
+	background-position: center;
+	background-size: cover;
+	margin: auto;
+}
+
+#recipe-form {
+	width: 90%;
+	min-width: 400px;
+	margin: auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+h3 {
+	margin: 0.5em;
+}
+
+fieldset {
+	width: 40%;
+	min-width: 450px;
+	margin: auto;
+}
+
+label {
+	display: block;
+}
+
+textarea {
+  resize: none;
+}
+
+.center	{
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.button {
+	display: block;
+	width: 150px;
+	margin: auto;
+}
+
+.field-txt input, .field-msg textarea {
+	width: 97%;
+}
+
+.field-num, .field-radio {
+	display: inline-block;
+}
+
+.field-num, .field-slide {
+	width: 49%;
+}
+
+.field-num input, .field-slide input {
+	width: 90%;
+}
+
+
+.field-radio input + label, .field-slide{
+	display: inline-block;
+}
+
+#allRecipes {
+  display: none;
+}
+#errorMessage {
+  display: none;
+  color: red;
+}
+
+#loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 40px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

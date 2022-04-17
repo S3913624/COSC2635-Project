@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Cooks Collection | Home</title>
+		<meta name="description" content="This is the description">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<header class="main-header">
+				<h1 class="team-name team-name-large">Cooks Collection</h1>
+		</header>
+
+		<!-- Sidebar -->
+		<div class="sidebar bar-block border-right" style="display:none" id="Sidebar">
+			<button onclick="sidebar_close()" class="sidebar-button xlarge">&times;</button>
+			<a href="index.html" class="bar-item sidebar-contents-button">Home</a>
+			<a href="search.html" class="bar-item sidebar-contents-button">Search</a>
+			<a href="categories.html" class="bar-item sidebar-contents-button">Categories</a>
+			<a href="recipe_form.html" class="bar-item sidebar-contents-button">Recipe Form</a>
+			</div>
+		</div>
+
+		<!-- Controls sidebar behaviour -->
+		<script>
+			function sidebar_open() {
+			  document.getElementById("Sidebar").style.display = "block";
+			}
+			
+			function sidebar_close() {
+			  document.getElementById("Sidebar").style.display = "none";
+			}
+			</script>
+
+		<!-- Burger button for sidebar -->
+		<button class="sidebar-button xlarge" onclick="sidebar_open()">☰</button>
+
+		<!-- Content -->
+		<section class="content-section container">
+			<h2 class="section-header">Home</h2>
+			<img class="circle-frame" src="Images/Person_Eating.jpg">
+			<p>Lorem ipsum dolor sit amet. Est galisum eaque quo animi reprehenderit et ipsum sapiente sed libero veniam. 
+				Id quos quas aut molestias cumque eum provident molestiae? Eos doloremque sunt est ipsam dolores aut quia 
+				aspernatur nam quae facere est amet exercitationem et expedita cumque sed asperiores consequatur. 33 
+				impedit nulla et dolore deserunt eum quam eius id consequatur facere iure quia. Est perferendis cupiditate 
+				ut voluptatum inventore ut velit iste est dolores aliquam. In numquam facere cum dolore itaque quo velit 
+				minus aut voluptatem consequuntur aut iste sunt sit fugiat sint. Aut aperiam reprehenderit est eius fuga 
+				eos itaque quibusdam non amet nemo. Id molestias sequi in possimus praesentium ut quia quas et laborum 
+				saepe atque quos et vitae voluptates? Vel dolorem explicabo est numquam galisum aut facere officiis quo 
+				dolore quia vel obcaecati. Ea cumque expedita est atque facere ea eaque perspiciatis. Sed dolorem omnis et 
+				adipisci quia At dolor quod. Sit nostrum facilis a autem eveniet et sequi praesentium non provident modi 
+				non distinctio mollitia. Est fuga sapiente et sint voluptates et voluptatibus molestiae. Eum natus maxime 
+				est eaque molestias et iure ut velit provident quo laborum asperiores.</p>
+
+			<p>Lorem ipsum dolor sit amet. Et fugit magni ut enim recusandae sed rerum ullam aut optio perferendis est 
+				consequatur quidem in internos aliquid At blanditiis voluptas. Qui magnam rerum sit tenetur eius ad sunt 
+				labore in facere ipsa aut iure possimus quo error voluptatem. Et mollitia rerum qui molestiae consequatur 
+				ut omnis voluptas et possimus voluptatem qui iure aliquam aut voluptas rerum ut nostrum ratione. Qui quod 
+				labore sit incidunt magni aut iusto illo ut totam alias aut provident officia. Quo expedita expedita non 
+				similique molestiae qui earum tempore est officia sunt ad fugiat ipsam sed itaque maxime eum autem 
+				necessitatibus.</p>
+
+			<p>Lorem ipsum dolor sit amet. Est galisum eaque quo animi reprehenderit et ipsum sapiente sed libero veniam. 
+				Id quos quas aut molestias cumque eum provident molestiae? Eos doloremque sunt est ipsam dolores aut quia 
+				aspernatur nam quae facere est amet exercitationem et expedita cumque sed asperiores consequatur. 33 
+				impedit nulla et dolore deserunt eum quam eius id consequatur facere iure quia. Est perferendis cupiditate 
+				ut voluptatum inventore ut velit iste est dolores aliquam. In numquam facere cum dolore itaque quo velit 
+				minus aut voluptatem consequuntur aut iste sunt sit fugiat sint. Aut aperiam reprehenderit est eius fuga 
+				eos itaque quibusdam non amet nemo. Id molestias sequi in possimus praesentium ut quia quas et laborum 
+				saepe atque quos et vitae voluptates? Vel dolorem explicabo est numquam galisum aut facere officiis quo 
+				dolore quia vel obcaecati. Ea cumque expedita est atque facere ea eaque perspiciatis. Sed dolorem omnis et 
+				adipisci quia At dolor quod. Sit nostrum facilis a autem eveniet et sequi praesentium non provident modi 
+				non distinctio mollitia. Est fuga sapiente et sint voluptates et voluptatibus molestiae. Eum natus maxime 
+				est eaque molestias et iure ut velit provident quo laborum asperiores.</p>
+
+		</section>
+
+		<!-- clear space to stop footer covering page content -->
+		<div class="clear"></div>
+
+		<!-- Footer fixed to bottom of window -->
+		<footer class="main-footer">
+			<div class="container main-footer-container">
+				<h3 class="team-name">Arch-IT-ects</h3>
+				<ul class="nav footer-nav">
+					<li><a href="https://github.com/S3913624/COSC2635-Project" target="blank"><img src="Images/Github_Logo.png"></a></li>
+					<li><a href="https://trello.com/b/GCaH8adM/oua-sp1-2022-the-arch-it-ects" target="blank"><img src="Images/Trello_Logo.png"></a></li>				
+					<li><a href="https://teams.microsoft.com/l/team/19%3avBpYPZcjTf3SApKH2JYja066DpDA_lI-27kDuzStrEI1%40thread.tacv2/conversations?groupId=a51a27be-9bbc-4199-a5fe-942d6e4c7973&tenantId=d1323671-cdbe-4417-b4d4-bdb24b51316b" target="blank"><img src="Images/MSTeams_Logo.png"></a></li>
+				</ul>
+			</div>
+		</footer>
+	</body>
+</html>
