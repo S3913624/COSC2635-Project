@@ -8,15 +8,17 @@ if (isset($_POST["submit"])) {
   $time = $_POST["time"];
   $diff = $_POST["diff"];
 
-  if(count($_POST["ingredients"]) == 0) {
+  if (empty($_POST["ingredients"])) {
     $ingredients = NULL;
-  }else{
+  }
+  else{
     $ingredients = serialize($_POST["ingredients"]);
   }
 
-  if(count($_POST["instructions"]) == 0) {
+  if(empty($_POST["instructions"])) {
     $instructions = NULL;
-  }else{
+  }
+  else{
     $instructions = serialize($_POST["instructions"]);
   }
 
@@ -58,20 +60,21 @@ if (isset($_POST["submit"])) {
       $result=mysqli_query($con,$sql);
       if ($result){
         echo "Data inserted successfully";
-      }else{
+      }
+      else{
         die(mysqli_error($con));
       }
-      echo
+      /*echo
       "
       <script>
         alert('Recipe Successfully Added');
         document.location.href = 'recipes.php';
       </script>
-      ";
+      ";*/
     }
   }
 
-
+  
 }
 
 ?>
@@ -94,6 +97,7 @@ if (isset($_POST["submit"])) {
         id="recipe-form"
         action=""
         method="post"
+        autocomplete="off"
         enctype="multipart/form-data"
       >
         <fieldset>
@@ -114,7 +118,6 @@ if (isset($_POST["submit"])) {
               id="name"
               name="name"
               placeholder="Enter recipe name"
-              autocomplete=\"off"
               required
             />
           </div>
@@ -125,7 +128,6 @@ if (isset($_POST["submit"])) {
               id="description"
               name="description"
               placeholder="Enter description"
-              autocomplete=\"off"
               required
             ></textarea>
           </div>
@@ -137,7 +139,6 @@ if (isset($_POST["submit"])) {
               id="time"
               name="time"
               placeholder="Enter cooking time"
-              autocomplete=\"off"
               required
             />
           </div>
@@ -158,7 +159,7 @@ if (isset($_POST["submit"])) {
               type="file"
               id="image"
               name="image"
-              accept="image/png, image/jpg"
+              accept="image/jpg, image/png, image/jpeg"
               required
             />
           </div>
