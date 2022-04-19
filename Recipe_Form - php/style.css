@@ -1,0 +1,98 @@
+
+h1 {
+	text-align: center;
+}
+
+h3 {
+	margin: 0.5em;
+}
+
+fieldset {
+	width: 40%;
+	min-width: 450px;
+	margin: auto;
+}
+
+label {
+	display: block;
+}
+
+textarea {
+  resize: none;
+}
+
+#display-image{
+	width: 375px;
+	height: 211px;
+	border: 1px solid black;
+	background-position: center;
+	background-size: cover;
+	margin: auto;
+}
+
+#recipe-form {
+	width: 90%;
+	min-width: 400px;
+	margin: auto;
+}
+
+.recipe-container {
+	width: 70%;
+	margin: auto;
+};
+
+.center	{
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.button {
+	display: block;
+	width: 150px;
+	margin: auto;
+}
+
+.field-txt input, .field-msg textarea {
+	width: 97%;
+}
+
+.field-num, .field-radio {
+	display: inline-block;
+}
+
+.field-num, .field-slide {
+	width: 49%;
+}
+
+.field-num input, .field-slide input {
+	width: 90%;
+}
+
+
+.field-radio input + label, .field-slide{
+	display: inline-block;
+}
+
+.recipes {
+	width: 100%;
+  	display: grid;
+  	justify-items: center;
+  	column-gap: 5rem;
+ 	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
+.recipes a {
+	width: 230px;
+	margin: 20px 10px;
+}
+
+.recipes a div {
+	width: 100%;
+	height: 230px;
+	background-color: red;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
