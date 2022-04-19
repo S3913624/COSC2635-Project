@@ -9,9 +9,9 @@ imageInput.addEventListener("change", insertImage);
 addIngredient.addEventListener("click", insertIngredient);
 addStep.addEventListener("click", insertStep);
 
-/*document.getElementById("btn").addEventListener("click", function (event) {
+document.getElementById("btn").addEventListener("click", function (event) {
   event.preventDefault();
-}); */
+});
 
 function insertImage() {
   const displayImage = document.querySelector("#empty-image");
