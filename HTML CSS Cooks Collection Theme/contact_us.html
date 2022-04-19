@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Cooks Collection | Search</title>
+		<title>Cooks Collection | Contact Us</title>
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
@@ -23,11 +23,11 @@
 		<!-- Controls sidebar behaviour -->
 		<script>
 			function sidebar_open() {
-			document.getElementById("Sidebar").style.display = "block";
+				document.getElementById("Sidebar").style.display = "block";
 			}
 			
 			function sidebar_close() {
-			document.getElementById("Sidebar").style.display = "none";
+				document.getElementById("Sidebar").style.display = "none";
 			}
 			</script>
 
@@ -35,19 +35,32 @@
 		<button class="sidebar-button xlarge" onclick="sidebar_open()">&#9776;</button>
 
 		<!-- Content -->
-
 		<section class="content-section container">
-			<h2 class="section-header">Search</h2>
+			<h2 class="section-header">Contact Us</h2>
 
 			<fieldset>
-				<legend>Search</legend>
-				<form name="frmSearch" method="get" action="./contact_view.php">
+				<legend>Contact Form</legend>
+				<form name="frmContact" method="post" action="contact_add.php">
 					<div class="buffer form-row">
-						<input type = "text" name = "q">
-						<input class="button" type="submit" value="Go">
+						<label for="Name">Name </label>
+						<input type="text" name="txtName" id="txtName">
 					</div>
+					<div class="buffer form-row">
+						<label for="email">Email</label>
+						<input type="text" name="txtEmail" id="txtEmail">
+					</div>
+					<div class="buffer form-row">
+						<label for="phone">Phone</label>
+						<input type="text" name="txtPhone" id="txtPhone">
+					</div>
+					<div class="buffer form-row">
+						<label for="message">Message</label>
+						<textarea name="txtMessage" id="txtMessage" rows="5" cols="50"></textarea>
+					</div class="buffer form-row">
+					<input class="button" type="submit" name="Submit" id="Submit" value="Submit">
 				</form>
 				</fieldset>
+				
 		</section>
 
 		<!-- clear space to stop footer covering page content -->

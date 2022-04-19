@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-
 <html>
 	<head>
-		<title>Cooks Collection | Search</title>
+		<title>Cooks Collection | Categories</title>
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
@@ -37,17 +35,57 @@
 		<!-- Content -->
 
 		<section class="content-section container">
-			<h2 class="section-header">Search</h2>
+            <?php
+                // Create connection
+                $conn = mysqli_connect('localhost', 'root', '','db_contact');
 
-			<fieldset>
-				<legend>Search</legend>
-				<form name="frmSearch" method="get" action="./contact_view.php">
-					<div class="buffer form-row">
-						<input type = "text" name = "q">
-						<input class="button" type="submit" value="Go">
-					</div>
-				</form>
-				</fieldset>
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $output = "";
+				$outputFinal = "<a href='index.html' class='buffer center'>Return to main</a>";
+								
+
+                if(isset($_GET["q"]) && $_GET["q"] !== "" && $_GET["q"] !== " ") {
+                    $searchq = $_GET["q"];
+                    
+                    $q = mysqli_query($conn,
+						"SELECT * FROM tbl_contact
+						WHERE fldName LIKE '%$searchq%'
+						OR fldEmail LIKE '%$searchq%'
+						OR fldPhone LIKE '%$searchq%'")
+						or die (mysqli_error($conn));
+
+                    $c = mysqli_num_rows($q);
+                    if ($c == 0) {
+                        $output = '<h2 class="section-header">No results found</h2>';
+                    } else {
+                        while ($row = mysqli_fetch_array($q)){
+                            $id = $row['Id'];
+                            $name = $row['fldName'];
+                            $email = $row['fldEmail'];
+                            $phone = $row['fldPhone'];
+                            $message = $row['fldMessage'];
+
+
+                            $output .= "<div class='buffer center'>
+                                        <h2><b>Name:</b> $name</h2>
+                                        <p><b>Email: </b>$email</p>
+                                        <p><b>Phone No.:</b> $phone</p>
+                                        <p><b>Comments:</b> $message</p></div>";
+                        }
+
+                    }
+                } else {
+                    header("location: search.html");
+                }
+                print("$output");
+				print($outputFinal);
+                mysqli_close($conn);
+
+            ?>
 		</section>
 
 		<!-- clear space to stop footer covering page content -->
