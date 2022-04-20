@@ -21,6 +21,12 @@ textarea {
   resize: none;
 }
 
+.center	{
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
 #display-image{
 	width: 375px;
 	height: 211px;
@@ -38,18 +44,6 @@ textarea {
 
 .recipe-container {
 	width: 70%;
-	margin: auto;
-};
-
-.center	{
-	display: block;
-	margin: auto;
-	text-align: center;
-}
-
-.button {
-	display: block;
-	width: 150px;
 	margin: auto;
 }
 

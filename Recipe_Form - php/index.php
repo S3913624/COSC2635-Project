@@ -64,17 +64,8 @@ if (isset($_POST["submit"])) {
       else{
         die(mysqli_error($con));
       }
-      /*echo
-      "
-      <script>
-        alert('Recipe Successfully Added');
-        document.location.href = 'recipes.php';
-      </script>
-      ";*/
     }
   }
-
-  
 }
 
 ?>
@@ -92,7 +83,7 @@ if (isset($_POST["submit"])) {
     <header>
       <h1>Add a Recipe</h1>
     </header>
-    <section class="container">
+    <section>
       <form
         id="recipe-form"
         action=""
@@ -101,7 +92,7 @@ if (isset($_POST["submit"])) {
         enctype="multipart/form-data"
       >
         <fieldset>
-          <div class="drop-select">
+          <div>
             <label for="category">Choose a category:</label>
             <select id="category" name="category" required>
               <option value="Breakfast">Breakfast</option>
@@ -153,7 +144,7 @@ if (isset($_POST["submit"])) {
               step="1"
             />
           </div>
-          <div class="field-img">
+          <div>
             <label for="image">Add an Image:</label>
             <input
               type="file"
@@ -169,7 +160,7 @@ if (isset($_POST["submit"])) {
         <fieldset>
           <legend>Ingredients</legend>
           <div id="ingredients"></div>
-          <button type="button" class="add-button" id="add-ingredient">
+          <button type="button" id="add-ingredient">
             Add ingredient
           </button>
         </fieldset>
@@ -177,15 +168,15 @@ if (isset($_POST["submit"])) {
         <fieldset>
           <legend>Instructions</legend>
           <div id="steps"></div>
-          <button type="button" class="add-button" id="add-step">
+          <button type="button" id="add-step">
             Add step
           </button>
         </fieldset>
 
         <fieldset>
-          <a href="recipes." class="center">View Recipe Book</a>
+          <a href="recipes.php" class="center">View Recipe Book</a>
         </fieldset>
-        <button id="btn" class="center" type="submit" name="submit">Submit</button>
+        <button class="center" id="submit-btn" type="submit" name="submit">Submit</button>
       </form>
     </section>
     <aside></aside>
