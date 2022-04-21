@@ -1,7 +1,7 @@
 <?php
 $con = mysqli_connect('localhost', 'root', '', 'cooks_collection');
 if ($con){
-    echo "Connection Successful";
+    //echo "Connection Successful";
 } else{
     die(mysqli_error($con));
 }
