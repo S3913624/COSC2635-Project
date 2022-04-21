@@ -33,20 +33,20 @@ function insertIngredient(e) {
       <h3>Ingredient ${ingredientCounter}</h3>
       <div class="field-txt">
         <label for="ing-name-${ingredientCounter}">Name:</label>
-        <input type="text" id="ing-name-${ingredientCounter}" name="ingredients[${ingredientCounter}][name]" placeholder="Enter ingredient name">
+        <input type="text" id="ing-name-${ingredientCounter}" name="ingredients[${ingredientCounter}][name]" placeholder="Enter ingredient name" required>
       </div>
       <div class="field-num">
         <label for="amount${ingredientCounter}">Amount:</label>
-        <input type="number" id="amount-${ingredientCounter}" name="ingredients[${ingredientCounter}][amount]" placeholder="Enter ingredient amount">
+        <input type="number" id="amount-${ingredientCounter}" name="ingredients[${ingredientCounter}][amount]" placeholder="Enter ingredient amount" required>
       </div>
       <div class="field-radio">
-        <input type="radio" id="ml-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="ml">
+        <input type="radio" id="ml-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="ml" required>
         <label for="ml-${ingredientCounter}">ml</label>
-        <input type="radio" id="g-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="g">
+        <input type="radio" id="g-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="g" required>
         <label for="g-${ingredientCounter}">g</label>
-        <input type="radio" id="ounces-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="ounces">
+        <input type="radio" id="ounces-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="ounces" required>
         <label for="ounces-${ingredientCounter}">ounces</label>
-        <input type="radio" id="cups-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="cups">
+        <input type="radio" id="cups-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" value="cups" required>
         <label for="cups-${ingredientCounter}">cups</label>
       </div>
     `;
@@ -63,7 +63,7 @@ function insertStep(e) {
   newStep.innerHTML = `
       <div class="field-msg">
         <label for="step-${stepCounter}">Step ${stepCounter}:</label>
-        <textarea id="step-${stepCounter}" name="instructions[${stepCounter}][step]" placeholder="Enter instructions"></textarea>
+        <textarea id="step-${stepCounter}" name="instructions[${stepCounter}][step]" placeholder="Enter instructions" required></textarea>
       </div>
     `;
   steps.appendChild(newStep);

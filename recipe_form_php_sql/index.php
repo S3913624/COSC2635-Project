@@ -11,27 +11,28 @@
 
 <body>
     <header>
-        <h1>Cook's Collection</h1>
+        <h1 class="center">Cook's Collection</h1>
     </header>
     <section class="recipe-container">
         <a href="add_recipe.php" class="center">Add Recipe</a>
         <div class="recipes">
             <?php
-          include ('./connection.php');
-          $sql="Select * from `recipes`";
-          $result=mysqli_query($con,$sql);
-          while ($row = mysqli_fetch_array($result)){
-            $name = $row['name'];
-            $description = $row['description'];
-            $image = $row['image'];
+            include('./connection.php');
+            $sql = "Select * from `recipes`";
+            $result = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_array($result)) {
+                $id = $row['id'];
+                $name = $row['name'];
+                $description = $row['description'];
+                $image = $row['image'];
 
-            echo '<a href="images/'.$image.'">
-            <div style="background-image: url(images/'.$image.');"></div>
-            <h3>'.$name.'</h3>
-            <p>'.$description.'</p>
+                echo '<a href="view_recipe.php?id=' . $id . '">
+            <div style="background-image: url(images/' . $image . ');"></div>
+            <h3>' . $name . '</h3>
+            <p>' . $description . '</p>
             </a>';
-          }
-        ?>
+            }
+            ?>
         </div>
     </section>
     <aside></aside>
