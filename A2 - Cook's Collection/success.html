@@ -24,36 +24,15 @@
 		<a href="contact_us.html" class="bar-item sidebar-contents-button">Contact Us</a>
 	</div>
   
-
-  <!-- Controls sidebar behaviour -->
-  <script>
-  function openNav() {
-	  document.getElementById("mySidenav").style.width = "250px";
-	  document.getElementById("main").style.marginLeft = "250px";
-  }
-
-  function closeNav() {
-	  document.getElementById("mySidenav").style.width = "0";
-	  document.getElementById("main").style.marginLeft = "0";
-  }
-  </script>
-
-  
-  
-
   <!-- Content -->
   <div id="main">
 	  <!-- Burger button for sidebar -->
-	  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+	  <span class="sticky" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
 	  <section class="content-section container">
 		<h2 class="section-header page-notification">The form was submitted successfully.<br>You will be redirected shortly.</h2>
-
-	</section>
+	  </section>
   </div>
-
-		<!-- Content -->
-
-		
 
 		<!-- clear space to stop footer covering page content -->
 		<div class="clear"></div>
@@ -68,5 +47,6 @@
 				</ul>
 			</div>
 		</footer>
+		<script src="main.js"></script>
 	</body>
 </html>

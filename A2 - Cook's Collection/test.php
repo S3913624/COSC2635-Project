@@ -17,15 +17,15 @@
 
     <!-- Sidebar -->
     <div id="mySidenav" class="sidenav">
-  		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  		<a href="index.php" class="bar-item sidebar-contents-button">Recipes</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.php" class="bar-item sidebar-contents-button">Recipes</a>
         <a href="add_recipe.php" class="bar-item sidebar-contents-button">Add Recipe</a>
-		<a href="search.html" class="bar-item sidebar-contents-button">Search</a>
-		<a href="select_category.php" class="bar-item sidebar-contents-button">Categories</a>
-		<a href="contact_us.html" class="bar-item sidebar-contents-button">Contact Us</a>
-		<a href="test.php" class="bar-item sidebar-contents-button">Test</a>
-</div>
-    
+        <a href="search.html" class="bar-item sidebar-contents-button">Search</a>
+        <a href="select_category.php" class="bar-item sidebar-contents-button">Categories</a>
+        <a href="contact_us.html" class="bar-item sidebar-contents-button">Contact Us</a>
+        <a href="test.php" class="bar-item sidebar-contents-button">Test</a>
+    </div>
+
 
     <!-- Controls sidebar behaviour -->
     <script>
@@ -40,12 +40,12 @@
     }
     </script>
 
-    
-    
+
+
 
     <!-- Content -->
     <div id="main">
-		<!-- Burger button for sidebar -->
+        <!-- Burger button for sidebar -->
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
         <!-- insert everythign here -->
     </div>

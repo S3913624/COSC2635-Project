@@ -28,4 +28,3 @@ if($rs)
 }
 
 $conn->close();
-?>
