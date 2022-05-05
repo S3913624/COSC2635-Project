@@ -18,20 +18,21 @@
     <!-- Sidebar -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.php" class="bar-item sidebar-contents-button">Recipes</a>
-        <a href="add_recipe.php" class="bar-item sidebar-contents-button">Add Recipe</a>
-        <a href="search.html" class="bar-item sidebar-contents-button">Search</a>
-        <a href="select_category.php" class="bar-item sidebar-contents-button">Categories</a>
-        <a href="contact_us.html" class="bar-item sidebar-contents-button">Contact Us</a>
+        <a href="index.php">Recipes</a>
+        <a href="add_recipe.php">Add Recipe</a>
+        <a href="search.html">Search</a>
+        <a href="select_category.php">Categories</a>
+        <a href="contact_us.html">Contact Us</a>
     </div>
 
     <!-- Content -->
     <div id="main">
         <!-- Burger button for sidebar -->
         <span class="sticky" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <h2 class="section-header">Categories</h2>
         <section class="content-section container">
 
-            <h2 class="section-header">Categories</h2>
+            
             <div class="center">
                 <select id="category-select">
                     <option value="">Choose a Category...</option>
