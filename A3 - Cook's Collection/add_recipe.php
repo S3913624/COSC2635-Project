@@ -99,13 +99,20 @@ if (isset($_POST["submit"])) {
             <form id="recipe-form" action="" method="post" autocomplete="off" enctype="multipart/form-data">
                 <fieldset>
                     <div>
-                        <label for="category">Choose a category:</label>
-                        <select id="category" name="category" required>
-                            <option value="Breakfast">Breakfast</option>
-                            <option value="Lunch">Lunch</option>
-                            <option value="Dinner">Dinner</option>
-                            <option value="Dessert">Dessert</option>
-                        </select>
+                    <label>Enter a Category:<input list="category" name="category" required/></label>
+                    <datalist id="category">
+                    <?php
+                include('./connection.php');
+                $sql = 'SELECT DISTINCT category FROM recipes';
+                $result = mysqli_query($con, $sql);
+                while ($row = mysqli_fetch_array($result)) {
+                    $category = $row['category'];
+                    echo '
+                    <option>' . $category . '</option>
+                    ';
+                }
+                ?> 
+                    </datalist>
                     </div>
                     <br />
                     <div class="field-txt">

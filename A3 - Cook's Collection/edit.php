@@ -123,16 +123,26 @@ if (isset($_POST["submit"])) {
                 <br>
                 <form id="recipe-form" action="" method="post" autocomplete="off" enctype="multipart/form-data">
                     <fieldset>
+                        
                         <div>
-                            <label for="category">Choose a category:</label>
-                            <select id="category" name="category" required>
-                                <option selected style="display: none;"><?php echo $category ?></option>
-                                <option value="Breakfast">Breakfast</option>
-                                <option value="Lunch">Lunch</option>
-                                <option value="Dinner">Dinner</option>
-                                <option value="Dessert">Dessert</option>
-                            </select>
-                        </div>
+                    <label>Enter a Category:
+                        <input list="category" name="category" required value="<?php echo $category ?>"/>
+                    </label>
+                    <datalist id="category">
+                    <?php
+                include('./connection.php');
+                $sql = 'SELECT DISTINCT category FROM recipes';
+                $result = mysqli_query($con, $sql);
+                while ($row = mysqli_fetch_array($result)) {
+                    $categoryOpt = $row['category'];
+                    echo '
+                    <option>' . $categoryOpt . '</option>
+                    ';
+                }
+                ?> 
+                    </datalist>
+                    </div>
+
                         <br />
                         <div class="field-txt">
                             <label for="name">Recipe Name: </label>
@@ -181,16 +191,29 @@ if (isset($_POST["submit"])) {
                                         </div>
                                         <div class="field-num">
                                             <label for="amount' . $ingredientCounter . '">Amount:</label>
-                                            <input type="number" id="amount-' . $ingredientCounter . '" name="ingredients[' . $ingredientCounter . '][amount]" value=' . $ingredient['amount'] . ' required>
+                                            <input type="number" step="any" id="amount-' . $ingredientCounter . '" name="ingredients[' . $ingredientCounter . '][amount]" value=' . $ingredient['amount'] . ' required>
                                         </div>
                                         <div>
                                         <label for="unit-' . $ingredientCounter . '">Unit:</label>
                                         <select id="unit-' . $ingredientCounter . '" name="ingredients[' . $ingredientCounter . '][unit]"  required>
                                             <option selected style="display: none;">' . $ingredients[$ingredientCounter]['unit'] . '</option>
                                             <option value="g">g</option>
-                                            <option value="ml">ml</option>
-                                            <option value="ounces">ounces</option>
-                                            <option value="cups">cups</option>
+                                            <option value="kg">kg</option>
+                                            <option value="mg">mg</option>
+                                            <option value="cup(s)">cup(s)</option>
+                                            <option value="tsp.">tsp.</option>
+                                            <option value="tbsp.">tbsp.</option>
+                                            <option value="pinch(es)">pinch(es)</option>
+                                            <option value="mL">mL</option>
+                                            <option value="L">L</option>
+                                            <option value="dL">dL</option>
+                                            <option value="oz">oz</option>
+                                            <option value="fl oz">fl oz</option>
+                                            <option value="fl pt">fl pt</option>
+                                            <option value="fl qt">fl qt</option>
+                                            <option value="gal">gal</option>
+                                            <option value="gill">gill</option>
+                                            <option value="ea.">ea.</option>
                                         </select>
                                         </div>
                                         </div>

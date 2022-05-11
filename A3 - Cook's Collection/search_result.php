@@ -18,8 +18,8 @@
     <!-- Sidebar -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.php" class="bar-item sidebar-contents-button">Recipes</a>
-        <a href="add_recipe.php" class="bar-item sidebar-contents-button">Add Recipe</a>
+        <a href="index.php">Recipes</a>
+        <a href="add_recipe.php">Add Recipe</a>
     </div>
 
     <!-- Content -->
@@ -35,16 +35,26 @@
                 </form>
             </div>
             <div class="center">
-                <select id="category-select">
+            <select id="category-select">
                     <option selected style="display: none;" value="">Choose a Category...</option>
-                    <option value="categories.php?category='Breakfast'">Breakfast</option>
-                    <option value="categories.php?category='Lunch'">Lunch</option>
-                    <option value="categories.php?category='Dinner'">Dinner</option>
-                    <option value="categories.php?category='Dessert'">Dessert</option>
+                    <?php
+                    include('./connection.php');
+                    $sql = 'SELECT DISTINCT category FROM recipes';
+                    $result = mysqli_query($con, $sql);
+                    while ($row = mysqli_fetch_array($result)) {
+                        $category = $row['category'];
+                        echo '
+                        <option value="categories.php?category=\'' . $category . '\'">' . $category . '</option>
+                        ';
+                    }
+                    ?> 
                 </select>
                 <button id="go" onclick="gotosite()">Go</button>
             </div>
-            <a href='index.php' class='buffer center'>All Recipes</a>
+            <br>
+            <form class="center" method="POST" action="index.php">
+                <input type="submit" value="All Recipes">
+            </form>
             <div class="recipes">
 
                 <?php
@@ -66,10 +76,12 @@
                             $category = $row['category'];
                             $image = $row['image'];
 
-                            echo '<a href="view_recipe.php?id=' . $id . '">
+                            echo '  <div class="recipe">
+                                    <a href="view_recipe.php?id=' . $id . '">
                                     <div style="background-image: url(images/recipe_images/' . $image . ');"></div>
                                     <h3>' . $name . '</h3>
-                                    </a>';
+                                    </a>
+                                    </div>';
                         }
                     }
                 }
@@ -97,6 +109,7 @@
         </div>
     </footer>
     <script src="main.js"></script>
+    
 </body>
 
 </html>

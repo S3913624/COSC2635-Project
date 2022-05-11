@@ -31,7 +31,7 @@
         include('./connection.php');
         $sql = 'SELECT * FROM recipes WHERE id=' . $id;
         $result = mysqli_query($con, $sql);
-        while ($row = mysqli_fetch_array($result)) {
+        $row = mysqli_fetch_array($result);
             $name = $row['name'];
             $description = $row['description'];
             $category = $row['category'];
@@ -45,15 +45,34 @@
                     <button class="center" type="button" onclick="javascript:history.back()">Back</button>
                         <br>
                         <span class="modify-buttons">
-                            <form method="POST" action="edit.php?id=' . $id . '">
-                                <input type="submit" value="Edit">
-                            </form>
-                            <form method="POST" action="delete.php?id=' . $id . '">
-                                <input type="submit" value="Delete">
-                            </form>
-                        </span>
+                          <form method="POST" action="edit.php?id=' . $id . '">
+                                    <input type="submit" value="Edit">
+                                </form>
+                          <button  onclick="document.getElementById(\'del-' . $id . '\').style.display=\'block\'">Delete</button>
+                          </span>
+                          </div>
+
+
+                          
+                          
                     <section class="content-section">
                         <div class="recipes">
+                        <div id="del-' . $id . '" class="confirm">
+                            <span onclick="document.getElementById(\'del-' . $id . '\').style.display=\'none\'" class="close" title="Close">×</span>
+                            <div class="confirm-content">
+                              <div class="confirm-container">
+                                <h1>Delete Recipe?</h1>
+                                <p>Are you sure you want to delete this recipe?</p>
+                                <span class="modify-buttons">
+                                <form method="POST" action="delete.php?id=' . $id . '">
+                                    <input type="submit" value="Confirm">
+                                </form>
+                                <button type="button" onclick="document.getElementById(\'del-' . $id . '\').style.display=\'none\'">Cancel</button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>  
+                        <div class="recipe">
                             <a href="images/recipe_images/' . $image . '">
                                 <div style="background-image: url(images/recipe_images/' . $image . ');"></div>
                                 <h3>' . $name . '</h3>
@@ -79,10 +98,11 @@
                     }
                 }
             }
-        }
+        
         ?>
         </ol>
         </a>
+        </div>
     </div>
     </section>
     </section>
@@ -103,6 +123,7 @@
         </div>
     </footer>
     <script src="main.js"></script>
+    <script src="delete_modal.js"></script>
 </body>
 
 </html>

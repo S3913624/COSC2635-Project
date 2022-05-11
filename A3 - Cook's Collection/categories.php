@@ -39,16 +39,25 @@
                 </form>
             </div>
             <div class="center">
-                <select id="category-select">
+            <select id="category-select">
                     <option selected style="display: none;" value="">Choose a Category...</option>
-                    <option value="categories.php?category='Breakfast'">Breakfast</option>
-                    <option value="categories.php?category='Lunch'">Lunch</option>
-                    <option value="categories.php?category='Dinner'">Dinner</option>
-                    <option value="categories.php?category='Dessert'">Dessert</option>
+                    <?php
+                    include('./connection.php');
+                    $sql = 'SELECT DISTINCT category FROM recipes';
+                    $result = mysqli_query($con, $sql);
+                    while ($row = mysqli_fetch_array($result)) {
+                        $category = $row['category'];
+                        echo '
+                        <option value="categories.php?category=\'' . $category . '\'">' . $category . '</option>
+                        ';
+                    }
+                    ?> 
                 </select>
                 <button id="go" onclick="gotosite()">Go</button>
                 <br><br>
-                <a href="index.php" class="center">All Recipes</a>
+                <form class="center" method="POST" action="index.php">
+                <input type="submit" value="All Recipes">
+            </form>
             </div>
             <?php
             $category = $_GET['category'];
@@ -68,11 +77,14 @@
                 echo '
                 <section class="recipe-container">
                     <div class="recipes">
-                        <a href="view_recipe.php?id=' . $id . '">
-                            <div style="background-image: url(images/recipe_images/' . $image . ');"></div>
-                            <h3>' . $name . '</h3>
-                        </a>
+                        <div class="recipe">
+                            <a href="view_recipe.php?id=' . $id . '">
+                                <div style="background-image: url(images/recipe_images/' . $image . ');"></div>
+                                <h3>' . $name . '</h3>
+                            </a>
+                        </div>
                     </div>
+                    
                 </section>';
             }
             ?>
@@ -93,6 +105,7 @@
         </div>
     </footer>
     <script src="main.js"></script>
+    
 </body>
 
 </html>

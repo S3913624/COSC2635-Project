@@ -36,16 +36,29 @@ function insertIngredient(e) {
       </div>
       <div class="field-num">
         <label for="amount${ingredientCounter}">Amount:</label>
-        <input type="number" id="amount-${ingredientCounter}" name="ingredients[${ingredientCounter}][amount]" placeholder="Enter ingredient amount" required>
+        <input type="number" step="any" id="amount-${ingredientCounter}" name="ingredients[${ingredientCounter}][amount]" placeholder="Enter ingredient amount" required>
       </div>
 
       <div>
       <label for="unit-${ingredientCounter}">Unit:</label>
       <select id="unit-${ingredientCounter}" name="ingredients[${ingredientCounter}][unit]" required>
-            <option value="g">g</option>    
-            <option value="ml">ml</option>
-            <option value="ounces">ounces</option>
-            <option value="cups">cups</option>
+        <option value="g">g</option>
+        <option value="kg">kg</option>
+        <option value="mg">mg</option>
+        <option value="cup(s)">cup(s)</option>
+        <option value="tsp.">tsp.</option>
+        <option value="tbsp.">tbsp.</option>
+        <option value="pinch(es)">pinch(es)</option>
+        <option value="mL">mL</option>
+        <option value="L">L</option>
+        <option value="dL">dL</option>
+        <option value="oz">oz</option>
+        <option value="fl oz">fl oz</option>
+        <option value="fl pt">fl pt</option>
+        <option value="fl qt">fl qt</option>
+        <option value="gal">gal</option>
+        <option value="gill">gill</option>
+        <option value="ea.">ea.</option>
       </select>
       </div>
     `;

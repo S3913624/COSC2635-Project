@@ -36,10 +36,17 @@
             <div class="center">
                 <select id="category-select">
                     <option selected style="display: none;" value="">Choose a Category...</option>
-                    <option value="categories.php?category='Breakfast'">Breakfast</option>
-                    <option value="categories.php?category='Lunch'">Lunch</option>
-                    <option value="categories.php?category='Dinner'">Dinner</option>
-                    <option value="categories.php?category='Dessert'">Dessert</option>
+                    <?php
+                    include('./connection.php');
+                    $sql = 'SELECT DISTINCT category FROM recipes';
+                    $result = mysqli_query($con, $sql);
+                    while ($row = mysqli_fetch_array($result)) {
+                        $category = $row['category'];
+                        echo '
+                        <option value="categories.php?category=\'' . $category . '\'">' . $category . '</option>
+                        ';
+                    }
+                    ?> 
                 </select>
                 <button id="go" onclick="gotosite()">Go</button>
             </div>
@@ -57,24 +64,45 @@
                     $name = $row['name'];
                     $description = $row['description'];
                     $image = $row['image'];
-                    echo '<a href="view_recipe.php?id=' . $id . '">
+                    echo '<div class="recipe">
+                            <a href="view_recipe.php?id=' . $id . '">
                             <div style="background-image: url(images/recipe_images/' . $image . ');"></div>
                             <h3>' . $name . '</h3>
-                            <span class="modify-buttons">
-                                <form method="POST" action="edit.php?id=' . $id . '">
+                          </a>
+                          
+                          <span class="modify-buttons">
+                          <form method="POST" action="edit.php?id=' . $id . '">
                                     <input type="submit" value="Edit">
                                 </form>
+                          <button  onclick="document.getElementById(\'del-' . $id . '\').style.display=\'block\'">Delete</button>
+                          </span>
+                          </div>
+
+
+                          <div id="del-' . $id . '" class="confirm">
+                            <span onclick="document.getElementById(\'del-' . $id . '\').style.display=\'none\'" class="close" title="Close">×</span>
+                            <div class="confirm-content">
+                              <div class="confirm-container">
+                                <h1>Delete Recipe?</h1>
+                                <p>Are you sure you want to delete this recipe?</p>
+                                <span class="modify-buttons">
                                 <form method="POST" action="delete.php?id=' . $id . '">
-                                    <input type="submit" value="Delete">
+                                    <input type="submit" value="Confirm">
                                 </form>
-                            </span>
-                          </a>
+                                <button type="button" onclick="document.getElementById(\'del-' . $id . '\').style.display=\'none\'">Cancel</button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>  
+                          
                           ';
                 }
                 ?>
             </div>
         </section>
     </div>
+
+  
 
     <!-- clear space to stop footer covering page content -->
     <div class="clear"></div>
@@ -91,6 +119,7 @@
         </div>
     </footer>
     <script src="main.js"></script>
+    <script src="delete_modal.js"></script>
 </body>
 
 </html>
