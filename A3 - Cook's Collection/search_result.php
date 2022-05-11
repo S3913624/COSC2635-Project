@@ -62,7 +62,24 @@
                 include('./connection.php');
                 if (isset($_GET["q"]) && $_GET["q"] !== "" && $_GET["q"] !== " ") {
                     $searchq = $_GET["q"];
-                    $sql = "SELECT * FROM recipes WHERE `name` LIKE '%$searchq%'";
+                    
+                    // start with the first part of the query
+                    $sql = "SELECT * FROM recipes WHERE ";
+
+                    // cut the string on whitespaces
+                    $separateWords = explode(" ", $searchq);
+
+                    // create an array and store the words in it
+                    $wordArray = array();
+                    foreach ($separateWords AS $word)
+                    {
+                        $wordArray[] = "`name` LIKE '%$word%'";
+                    };
+
+                    // link everything together
+                    $sql .= implode(" OR ", $wordArray);
+                    
+                    // send the query
                     $result = mysqli_query($con, $sql)
                         or die(mysqli_error($con));
                     $numOfCol = mysqli_num_rows($result);

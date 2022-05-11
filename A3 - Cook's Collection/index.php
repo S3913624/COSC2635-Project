@@ -58,7 +58,7 @@
                 <?php
                 include('./connection.php');
                 $sql = "Select * from `recipes`";
-                $result = mysqli_query($con, $sql);
+                $result = mysqli_query($con, $sql);        
                 while ($row = mysqli_fetch_array($result)) {
                     $id = $row['id'];
                     $name = $row['name'];
