@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <h1 class="team-name team-name-large">Cooks Collection</h1>
     </header>
     <!-- Sidebar -->
-    <div id="mySidenav" class="sidenav">
+    <div id="mainSidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.php">Recipes</a>
         <a href="add_recipe.php">Add Recipe</a>
@@ -32,12 +32,13 @@
                     <input type="text" name="q" placeholder="Search" />
                     <input type="submit" value="Go" />
                 </form>
+                <br>
             </div>
             <div class="center">
                 <select id="category-select">
                     <option selected style="display: none;" value="">Choose a Category...</option>
                     <?php
-                    include('./connection.php');
+                    include('./PHP/connection.php');
                     $sql = 'SELECT DISTINCT category FROM recipes';
                     $result = mysqli_query($con, $sql);
                     while ($row = mysqli_fetch_array($result)) {
@@ -56,9 +57,9 @@
             </form>
             <div class="recipes">
                 <?php
-                include('./connection.php');
+                include('./PHP/connection.php');
                 $sql = "Select * from `recipes`";
-                $result = mysqli_query($con, $sql);        
+                $result = mysqli_query($con, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                     $id = $row['id'];
                     $name = $row['name'];
@@ -86,7 +87,7 @@
                                 <h1>Delete Recipe?</h1>
                                 <p>Are you sure you want to delete this recipe?</p>
                                 <span class="modify-buttons">
-                                <form method="POST" action="delete.php?id=' . $id . '">
+                                <form method="POST" action="PHP/delete.php?id=' . $id . '">
                                     <input type="submit" value="Confirm">
                                 </form>
                                 <button type="button" onclick="document.getElementById(\'del-' . $id . '\').style.display=\'none\'">Cancel</button>
@@ -94,7 +95,6 @@
                               </div>
                             </div>
                           </div>  
-                          
                           ';
                 }
                 ?>
@@ -118,8 +118,8 @@
             </ul>
         </div>
     </footer>
-    <script src="main.js"></script>
-    <script src="delete_modal.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/delete_modal.js"></script>
 </body>
 
 </html>

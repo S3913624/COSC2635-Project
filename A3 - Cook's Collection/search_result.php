@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     </header>
 
     <!-- Sidebar -->
-    <div id="mySidenav" class="sidenav">
+    <div id="mainSidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.php">Recipes</a>
         <a href="add_recipe.php">Add Recipe</a>
@@ -33,12 +33,13 @@
                     <input type="text" name="q" placeholder="Search" />
                     <input type="submit" value="Go" />
                 </form>
+                <br>
             </div>
             <div class="center">
             <select id="category-select">
                     <option selected style="display: none;" value="">Choose a Category...</option>
                     <?php
-                    include('./connection.php');
+                    include('./PHP/connection.php');
                     $sql = 'SELECT DISTINCT category FROM recipes';
                     $result = mysqli_query($con, $sql);
                     while ($row = mysqli_fetch_array($result)) {
@@ -55,14 +56,14 @@
             <form class="center" method="POST" action="index.php">
                 <input type="submit" value="All Recipes">
             </form>
-            <div class="recipes">
+            <br>
+            
 
                 <?php
                 // Create connection
-                include('./connection.php');
+                include('./PHP/connection.php');
                 if (isset($_GET["q"]) && $_GET["q"] !== "" && $_GET["q"] !== " ") {
                     $searchq = $_GET["q"];
-                    
                     // start with the first part of the query
                     $sql = "SELECT * FROM recipes WHERE ";
 
@@ -85,8 +86,13 @@
                     $numOfCol = mysqli_num_rows($result);
 
                     if ($numOfCol == 0) {
-                        echo '<h2 class="buffer center">No results found</h2>';
+                        echo '<h2 class="center">No results found for "'.$searchq.'"</h2>
+                        <div class="recipes">
+                        ';
                     } else {
+                        echo '<h2 class="center">Showing results for "'.$searchq.'"</h2>
+                        <div class="recipes">
+                        ';
                         while ($row = mysqli_fetch_array($result)) {
                             $id = $row['id'];
                             $name = $row['name'];
@@ -109,6 +115,16 @@
                 mysqli_close($con);
                 ?>
             </div>
+            <?php
+            if ($numOfCol == 0) {
+                echo '
+                        <br>
+                        <form class="center" method="POST" action="add_recipe.php">
+                            <input type="submit" value="Add Recipe">
+                        </form>
+                ';
+            }
+            ?>
         </section>
     </div>
 
@@ -125,7 +141,7 @@
             </ul>
         </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="JS/main.js"></script>
     
 </body>
 

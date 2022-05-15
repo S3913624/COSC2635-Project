@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     </header>
 
     <!-- Sidebar -->
-    <div id="mySidenav" class="sidenav">
+    <div id="mainSidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.php">Recipes</a>
         <a href="add_recipe.php">Add Recipe</a>
@@ -37,12 +37,13 @@
                     <input type="text" name="q" placeholder="Search" />
                     <input type="submit" value="Go" />
                 </form>
+                <br>
             </div>
             <div class="center">
             <select id="category-select">
                     <option selected style="display: none;" value="">Choose a Category...</option>
                     <?php
-                    include('./connection.php');
+                    include('./PHP/connection.php');
                     $sql = 'SELECT DISTINCT category FROM recipes';
                     $result = mysqli_query($con, $sql);
                     while ($row = mysqli_fetch_array($result)) {
@@ -59,9 +60,11 @@
                 <input type="submit" value="All Recipes">
             </form>
             </div>
+    
+            <div class="recipes">
             <?php
             $category = $_GET['category'];
-            include('./connection.php');
+            include('./PHP/connection.php');
             $sql = 'SELECT * FROM recipes WHERE category=' . $category;
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)) {
@@ -75,19 +78,16 @@
                 $instructions = unserialize($row['instructions']);
                 $image = $row['image'];
                 echo '
-                <section class="recipe-container">
-                    <div class="recipes">
+
                         <div class="recipe">
                             <a href="view_recipe.php?id=' . $id . '">
                                 <div style="background-image: url(images/recipe_images/' . $image . ');"></div>
                                 <h3>' . $name . '</h3>
                             </a>
-                        </div>
-                    </div>
-                    
-                </section>';
+                        </div>';
             }
             ?>
+                </div>
         </section>
     </div>
 
@@ -104,7 +104,7 @@
             </ul>
         </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="JS/main.js"></script>
     
 </body>
 

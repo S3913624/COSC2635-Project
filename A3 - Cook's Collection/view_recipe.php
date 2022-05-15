@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     </header>
 
     <!-- Sidebar -->
-    <div id="mySidenav" class="sidenav">
+    <div id="mainSidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.php">Recipes</a>
         <a href="add_recipe.php">Add Recipe</a>
@@ -28,7 +28,7 @@
         <span class="sticky" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         <?php
         $id = $_GET['id'];
-        include('./connection.php');
+        include('./PHP/connection.php');
         $sql = 'SELECT * FROM recipes WHERE id=' . $id;
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
@@ -40,23 +40,11 @@
             $ingredients = unserialize($row['ingredients']);
             $instructions = unserialize($row['instructions']);
             $image = $row['image'];
-            echo '
-                    <h2 class="section-header">' . $name . '</h2>
-                    <button class="center" type="button" onclick="javascript:history.back()">Back</button>
-                        <br>
-                        <span class="modify-buttons">
-                          <form method="POST" action="edit.php?id=' . $id . '">
-                                    <input type="submit" value="Edit">
-                                </form>
-                          <button  onclick="document.getElementById(\'del-' . $id . '\').style.display=\'block\'">Delete</button>
-                          </span>
-                          </div>
-
-
-                          
-                          
+            echo ' 
                     <section class="content-section">
-                        <div class="recipes">
+                   
+                        <div class="recipe-display">
+                        
                         <div id="del-' . $id . '" class="confirm">
                             <span onclick="document.getElementById(\'del-' . $id . '\').style.display=\'none\'" class="close" title="Close">×</span>
                             <div class="confirm-content">
@@ -64,7 +52,7 @@
                                 <h1>Delete Recipe?</h1>
                                 <p>Are you sure you want to delete this recipe?</p>
                                 <span class="modify-buttons">
-                                <form method="POST" action="delete.php?id=' . $id . '">
+                                <form method="POST" action="PHP/delete.php?id=' . $id . '">
                                     <input type="submit" value="Confirm">
                                 </form>
                                 <button type="button" onclick="document.getElementById(\'del-' . $id . '\').style.display=\'none\'">Cancel</button>
@@ -73,12 +61,23 @@
                             </div>
                           </div>  
                         <div class="recipe">
+                        <button class="center" type="button" onclick="javascript:history.back()">Back</button>
+                            <br>
+                        <h2 class="section-header">' . $name . '</h2>
+                        
                             <a href="images/recipe_images/' . $image . '">
-                                <div style="background-image: url(images/recipe_images/' . $image . ');"></div>
-                                <h3>' . $name . '</h3>
-                                <p>' . $category . '</p>
-                                <p>' . $time . '</p>
-                                <p>' . $diff . '</p>
+                                <div style="background-image: url(images/recipe_images/' . $image . ');"></div></a>
+                                <br>
+                                <span class="modify-buttons">
+                                <form method="POST" action="edit.php?id=' . $id . '">
+                                          <input type="submit" value="Edit">
+                                      </form>
+                                <button  onclick="document.getElementById(\'del-' . $id . '\').style.display=\'block\'">Delete</button>
+                                </span>
+                                
+                                <p>Category: ' . $category . '</p>
+                                <p>Cooking Time: ' . $time . '</p>
+                                <p>Difficulty: ' . $diff . '/10</p>
                                 <p>' . $description . '</p>
                                 ';
             if ($ingredients !== false) {
@@ -101,7 +100,7 @@
         
         ?>
         </ol>
-        </a>
+        
         </div>
     </div>
     </section>
@@ -122,8 +121,8 @@
             </ul>
         </div>
     </footer>
-    <script src="main.js"></script>
-    <script src="delete_modal.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/recipe_view_delete.js"></script>
 </body>
 
 </html>
