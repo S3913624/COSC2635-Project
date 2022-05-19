@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Cooks Collection | Contact Us</title>
+		<meta name="description" content="This is the description">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<header class="main-header">
+			<h1 class="team-name team-name-large">Cooks Collection</h1>
+		</header>
+
+		<!-- Sidebar -->
+		<div class="sidebar bar-block border-right" style="display:none" id="Sidebar">
+			<button onclick="sidebar_close()" class="sidebar-button xlarge ">&times;</button>
+			<a href="index.html" class="bar-item sidebar-contents-button">Home</a>
+			<a href="search.html" class="bar-item sidebar-contents-button">Search</a>
+			<a href="categories.html" class="bar-item sidebar-contents-button">Categories</a>
+			<a href="contact_us.html" class="bar-item sidebar-contents-button">Contact Us</a>
+			</div>
+		</div>
+
+		<!-- Controls sidebar behaviour -->
+		<script>
+			function sidebar_open() {
+				document.getElementById("Sidebar").style.display = "block";
+			}
+			
+			function sidebar_close() {
+				document.getElementById("Sidebar").style.display = "none";
+			}
+			</script>
+
+		<!-- Burger button for sidebar -->
+		<button class="sidebar-button xlarge" onclick="sidebar_open()">☰</button>
+
+		<!-- Content -->
+		<section class="content-section container">
+			<h2 class="section-header">Contact Us</h2>
+
+			<fieldset>
+				<legend>Contact Form</legend>
+				<form name="frmContact" method="post" action="contact.php">
+					<div class="buffer form-row">
+						<label for="Name">Name </label>
+						<input type="text" name="txtName" id="txtName">
+					</div>
+					<div class="buffer form-row">
+						<label for="email">Email</label>
+						<input type="text" name="txtEmail" id="txtEmail">
+					</div>
+					<div class="buffer form-row">
+						<label for="phone">Phone</label>
+						<input type="text" name="txtPhone" id="txtPhone">
+					</div>
+					<div class="buffer form-row">
+						<label for="message">Message</label>
+						<textarea name="txtMessage" id="txtMessage" rows="5" cols="50"></textarea>
+					</div class="buffer form-row">
+					<input class="button" type="submit" name="Submit" id="Submit" value="Submit">
+				</form>
+				</fieldset>
+				
+		</section>
+
+		<footer class="main-footer">
+			<div class="container main-footer-container">
+				<h3 class="team-name">Arch-IT-ects</h3>
+				<ul class="nav footer-nav">
+					<li><a href="https://github.com/S3913624/COSC2635-Project" target="blank"><img src="Images/Github_Logo.png"></a></li>
+					<li><a href="https://trello.com/b/GCaH8adM/oua-sp1-2022-the-arch-it-ects" target="blank"><img src="Images/Trello_Logo.png"></a></li>				
+					<li><a href="https://teams.microsoft.com/l/team/19%3avBpYPZcjTf3SApKH2JYja066DpDA_lI-27kDuzStrEI1%40thread.tacv2/conversations?groupId=a51a27be-9bbc-4199-a5fe-942d6e4c7973&tenantId=d1323671-cdbe-4417-b4d4-bdb24b51316b" target="blank"><img src="Images/MSTeams_Logo.png"></a></li>
+				</ul>
+			</div>
+		</footer>
+	</body>
+</html>
