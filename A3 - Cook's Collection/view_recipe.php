@@ -66,7 +66,7 @@
                         <h2 class="section-header">' . $name . '</h2>
                         
                             <a href="images/recipe_images/' . $image . '">
-                                <div style="background-image: url(images/recipe_images/' . $image . ');"></div></a>
+                                <div class="recipe-picture" style="background-image: url(images/recipe_images/' . $image . ');"></div></a>
                                 <br>
                                 <span class="modify-buttons">
                                 <form method="POST" action="edit.php?id=' . $id . '">
@@ -74,6 +74,8 @@
                                       </form>
                                 <button  onclick="document.getElementById(\'del-' . $id . '\').style.display=\'block\'">Delete</button>
                                 </span>
+                                <div class="text-center">
+                                
                                 
                                 <p>Category: ' . $category . '</p>
                                 <p>Cooking Time: ' . $time . '</p>
@@ -81,22 +83,26 @@
                                 <p>' . $description . '</p>
                                 ';
             if ($ingredients !== false) {
-                echo '<h3>Ingredients</h3><ul>';
+                echo '<h3>Ingredients</h3><div class="ingredient-container">';
                 foreach ($ingredients as $ingredient) {
                     if (!empty($ingredient['name'])) {
-                        echo '<li>' . $ingredient['name'] . ' ' . $ingredient['amount'] . ' ' . $ingredient['unit'] . '</li> <br>';
+                        echo '<span><input type="checkbox" />  ' .$ingredient['name'] . ' ' . $ingredient['amount'] . ' ' . $ingredient['unit'] . '</span>';
                     }
                 }
-                echo '</ul>';
+                echo '</div>';
+                
             }
             if ($instructions !== false) {
-                echo '<h3>Instructions</h3><ol>';
+                echo '<h3>Instructions</h3><div class="recipe-instructions"><ol>';
                 foreach ($instructions as $instruction) {
                     if (!empty($instruction['step'])) {
-                        echo '<li>' . $instruction['step'] . '</li> <br>';
+                        echo '<li><input type="checkbox" /> ' . $instruction['step'] . '</li>';
                     }
                 }
+                echo '</ol></div>';
             }
+
+            echo " </div>";
         
         ?>
         </ol>
