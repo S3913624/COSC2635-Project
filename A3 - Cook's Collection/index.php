@@ -26,9 +26,10 @@
         <!-- Burger button for sidebar -->
         <span class="sticky" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         <h2 class="section-header">Recipes</h2>
+        <div>
         <section class="content-section">
             <div class="center">
-                <form name="frmSearch" method="get" action="./search_result.php">
+                <form name="frmSearch" method="get" autocomplete="off" action="./search_result.php">
                     <input type="text" name="q" placeholder="Search" />
                     <input type="submit" value="Go" />
                 </form>
@@ -49,7 +50,9 @@
                     }
                     ?> 
                 </select>
+                
                 <button id="go" onclick="gotosite()">Go</button>
+                </div>
             </div>
             <br>
             <form class="center" method="POST" action="add_recipe.php">

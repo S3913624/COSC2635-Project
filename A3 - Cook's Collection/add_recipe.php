@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
         $imageExtension = strtolower(end($imageExtension));
         if (!in_array($imageExtension, $validExtension)) {
             $imageErr = "Image must be jpg, jpeg or png";
-        } else if ($fileSize > 10000000000) {
+        } else if ($fileSize > 10000000) {
             $imageErr = "Image is too large";
         } else {
             $newImageName = uniqid();
@@ -168,8 +168,9 @@ if (isset($_POST["submit"])) {
                         <input type="range" id="diff" name="diff" min="0" max="10" step="1" value="<?php echo $diff;?>" />
                     </div>
                     <div>
-                        <label for="image">Add an Image:</label>
-                        <input type="file" id="image" name="image" accept="image/jpg, image/png, image/jpeg"/>
+                        <label id="add-image-btn"for="image">Add an Image:
+                        <input type="file" id="image" style="display: none;" name="image" accept="image/jpg, image/png, image/jpeg"/>
+                        </label>
                         <span class="error"><?php echo $imageErr;?></span>
                         <br>
                     </div>

@@ -150,13 +150,16 @@ textarea {
   font-size: 2.5em;
 }
 
-.recipe-display .text-center{
-  text-align: center;
+.recipe-display {
+  text-align: left;
 }
 
 .recipe-instructions {
   margin: 0 20%;
   text-align: left;
+}
+.recipe-instructions ol {
+  padding: 0;
 }
 
 .ingredient-container {
@@ -169,7 +172,15 @@ textarea {
   margin-top: 5px;
 }
 
+.details-container {
+  margin: 15px 20%;
+  display: flex;
+  flex-direction: column;
+}
 
+.details-container p{
+  margin: 5px;
+}
 
 /***** Footer nav ******/
 
@@ -329,7 +340,8 @@ textarea {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
 
 .modify-buttons {
@@ -348,13 +360,16 @@ textarea {
 /***** View recipe page ******/
 
 .recipe-display {
-  width: 60%;
+  width: 90%;
+  max-width: 830px;
   margin: auto;
 }
 
 .recipe-display .recipe {
   width: 100%;
   margin: 20px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2rem;
 }
 
 .recipe-display .recipe .recipe-picture {
@@ -366,6 +381,7 @@ textarea {
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /***** Category page ******/
@@ -456,45 +472,18 @@ textarea {
   }
 }
 
-.circle-frame {
-  float: left;
-  height: 200px;
-  width: 200px;
-  margin: 15px;
-  border-radius: 50%;
-}
-
-.xlarge {
-  font-size: 24px;
-}
-
-.main-nav {
-  text-align: center;
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
-.main-nav li {
-  padding: 0 5%;
-}
 
 /*** Modal ***/
 
 .confirm {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 1;
-  /* Sit on top */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
   background-color: rgba(66, 65, 65, 0.7);
   padding-top: 50px;
 }
@@ -563,10 +552,10 @@ input[type="submit" i]:hover {
 
 input[type="text" i] {
   padding: 6px 8px;
-  background: #f2f2f2;
+  background: #fff;
   color: #000;
   border-radius: 5px;
-  border: 1px solid #d6d6d6;
+  border: 1px solid rgb(59, 59, 59);
 }
 
 #category-select {
@@ -686,6 +675,39 @@ label {
 }
 
 #remove-step:hover {
+  background: #dadada;
+  color: #000;
+}
+
+#back-btn {
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+#back-btn:hover {
+  background: #dadada;
+  color: #000;
+}
+
+#add-image-btn {
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 160px;
+}
+
+#add-image-btn:hover {
   background: #dadada;
   color: #000;
 }

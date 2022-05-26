@@ -29,7 +29,7 @@
         <h2 class="section-header">Search</h2>
         <section class="content-section">
             <div class="center">
-                <form name="frmSearch" method="get" action="./search_result.php">
+                <form name="frmSearch" method="get" autocomplete="off" action="./search_result.php">
                     <input type="text" name="q" placeholder="Search" />
                     <input type="submit" value="Go" />
                 </form>

@@ -61,8 +61,7 @@
                             </div>
                           </div>  
                         <div class="recipe">
-                        <button class="center" type="button" onclick="javascript:history.back()">Back</button>
-                            <br>
+                        
                         <h2 class="section-header">' . $name . '</h2>
                         
                             <a href="images/recipe_images/' . $image . '">
@@ -74,13 +73,14 @@
                                       </form>
                                 <button  onclick="document.getElementById(\'del-' . $id . '\').style.display=\'block\'">Delete</button>
                                 </span>
-                                <div class="text-center">
+                                <div>
                                 
-                                
+                                <div class="details-container">
                                 <p>Category: ' . $category . '</p>
                                 <p>Cooking Time: ' . $time . '</p>
                                 <p>Difficulty: ' . $diff . '/10</p>
                                 <p>' . $description . '</p>
+                                </div>
                                 ';
             if ($ingredients !== false) {
                 echo '<h3>Ingredients</h3><div class="ingredient-container">';
@@ -106,7 +106,9 @@
         
         ?>
         </ol>
-        
+        <div class="center">
+        <button id="back-btn" type="button" onclick="javascript:history.back()">Back</button>
+        </div>                  
         </div>
     </div>
     </section>

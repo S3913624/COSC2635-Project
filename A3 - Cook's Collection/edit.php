@@ -198,8 +198,9 @@ if (isset($_POST["submit"])) {
                             <input type="range" id="diff" name="diff" min="0" max="10" step="1" value="<?php echo $diff; ?>" />
                         </div>
                         <div>
-                            <label for="image">Add an Image:</label>
-                            <input type="file" id="image" name="image" accept="image/jpg, image/png, image/jpeg"/>
+                            <label id="add-image-btn" for="image">Choose an Image:
+                            <input type="file" id="image" style="display: none;" name="image" accept="image/jpg, image/png, image/jpeg"/>
+                            </label>
                             <span class="error"><?php echo $imageErr;?></span>
                         <br>
                         </div>
